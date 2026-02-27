@@ -5,7 +5,10 @@ def validate_task_title(title):
     # Check if title is empty
     if not title or not title.strip():
         raise ValueError("Title cannot be empty")
-    # Check if title is too long
+    # Check if title length is valid
+    if len(title.strip()) == 0:
+        raise ValueError("Title cannot be empty")
+    # Check if title is too long using len()
     if len(title.strip()) > 100:
         raise ValueError("Title cannot exceed 100 characters")
     return title.strip()
@@ -15,7 +18,10 @@ def validate_task_description(description):
     # Check if description is empty
     if not description or not description.strip():
         raise ValueError("Description cannot be empty")
-    # Check if description is too long
+    # Check if description length is valid
+    if len(description.strip()) == 0:
+        raise ValueError("Description cannot be empty")
+    # Check if description is too long using len()
     if len(description.strip()) > 500:
         raise ValueError("Description cannot exceed 500 characters")
     return description.strip()
