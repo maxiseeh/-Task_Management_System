@@ -1,5 +1,8 @@
 # Import functions from task_manager package
-from task_manager.task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress, tasks
+try:
+    from task_manager.task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress, tasks
+except ImportError:
+    from task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress, tasks
 
 # Main function that runs the program
 def main():

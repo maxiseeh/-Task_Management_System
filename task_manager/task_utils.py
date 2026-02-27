@@ -24,23 +24,19 @@ def add_task(title, description, due_date):
     print("Task added successfully!")
     
 # Function to mark a task as done
-def mark_task_as_complete(index, task_list=None):
-    if task_list is None:
-        task_list = tasks
+def mark_task_as_complete(index, tasks=tasks):
     # Check if index is valid
-    if index >= 0 and index < len(task_list):
-        task_list[index]["completed"] = True
+    if index >= 0 and index < len(tasks):
+        tasks[index]["completed"] = True
         print("Task marked as complete!")
     else:
         print("Invalid task index")
     
 # Function to show tasks that are not done yet
-def view_pending_tasks(task_list=None):
-    if task_list is None:
-        task_list = tasks
+def view_pending_tasks(tasks=tasks):
     # Find tasks that are not completed
     pending_tasks = []
-    for task in task_list:
+    for task in tasks:
         if not task["completed"]:
             pending_tasks.append(task)
     
@@ -57,18 +53,16 @@ def view_pending_tasks(task_list=None):
         print(f"   Description: {task['description']}")
 
 # Function to calculate how much work is done
-def calculate_progress(task_list=None):
-    if task_list is None:
-        task_list = tasks
+def calculate_progress(tasks=tasks):
     # If no tasks, progress is 0
-    if len(task_list) == 0:
+    if len(tasks) == 0:
         progress = 0.0
     else:
         # Count completed tasks
         completed_count = 0
-        for task in task_list:
+        for task in tasks:
             if task["completed"]:
                 completed_count = completed_count + 1
         # Calculate percentage
-        progress = (completed_count / len(task_list)) * 100
+        progress = (completed_count / len(tasks)) * 100.0
     return progress
