@@ -25,9 +25,6 @@ def validate_due_date(due_date):
     try:
         # Try to convert string to date
         date_obj = datetime.strptime(due_date, "%Y-%m-%d")
-        # Check if date is in the past
-        if date_obj.date() < datetime.now().date():
-            raise ValueError("Due date cannot be in the past")
         return due_date
     except ValueError as e:
         # If date format is wrong
